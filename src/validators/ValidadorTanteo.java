@@ -7,16 +7,16 @@ import javax.faces.validator.FacesValidator;
 import javax.faces.validator.Validator;
 import javax.faces.validator.ValidatorException;
 
-@FacesValidator("validadorClave")
-public class ValidadorClave implements Validator{
+@FacesValidator("validadorTanteo")
+public class ValidadorTanteo implements Validator{
 
 	@Override
 	public void validate(FacesContext contex, UIComponent comp, Object value) throws ValidatorException{
 		
-		if(((String) value).length() <= 4){
+		if(((int)value) < 0){
 			FacesMessage mensaje = new FacesMessage();
-			mensaje.setSummary("Error tamaño clave.");
-			mensaje.setDetail("Error de clave: debe ser mayor de 4 caracteres.");
+			mensaje.setSummary("Error de tanteo.");
+			mensaje.setDetail("Error tanteo: no puede ser inferior a 0.");
 			mensaje.setSeverity(FacesMessage.SEVERITY_ERROR);
 			throw new ValidatorException(mensaje);
 		}

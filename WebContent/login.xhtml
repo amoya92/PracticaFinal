@@ -15,14 +15,14 @@
 				<div class="col-lg-6">
 					<div class="form-group">
 						<h:outputText value="Usuario"></h:outputText>
-						<p:inputText class="form-control" id="usuario"
-							value="#{beanLogin.nombre}" />
+						<p:inputText class="form-control" id="usuario" value="#{beanLogin.nombre}" required="true"/>
 						<h:message for="nombre" style="color:red" />
 					</div>
 					<div class="form-group">
 						<h:outputText value="Constraseña"></h:outputText>
-						<p:inputText class="form-control" id="contrasena"
-							value="#{beanLogin.password}" />
+						<p:inputText class="form-control" id="contrasena" value="#{beanLogin.password}">
+							<f:validator validatorId="validadorClave"/>
+						</p:inputText>
 					</div>
 	
 					<div class="form-group">

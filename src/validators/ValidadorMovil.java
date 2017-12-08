@@ -7,16 +7,16 @@ import javax.faces.validator.FacesValidator;
 import javax.faces.validator.Validator;
 import javax.faces.validator.ValidatorException;
 
-@FacesValidator("validadorClave")
-public class ValidadorClave implements Validator{
+@FacesValidator("validadorMovil")
+public class ValidadorMovil implements Validator{
 
 	@Override
 	public void validate(FacesContext contex, UIComponent comp, Object value) throws ValidatorException{
 		
-		if(((String) value).length() <= 4){
+		if(((int)value) != 9){
 			FacesMessage mensaje = new FacesMessage();
-			mensaje.setSummary("Error tamaño clave.");
-			mensaje.setDetail("Error de clave: debe ser mayor de 4 caracteres.");
+			mensaje.setSummary("Error de movil.");
+			mensaje.setDetail("Error de movil: debe tener 9 dígitos.");
 			mensaje.setSeverity(FacesMessage.SEVERITY_ERROR);
 			throw new ValidatorException(mensaje);
 		}
